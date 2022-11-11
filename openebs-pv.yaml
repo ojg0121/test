@@ -1,0 +1,47 @@
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: elasticsearch-master-elasticsearch-master-0
+  labels:
+    type: local
+spec:
+  storageClassName: "openebs-hostpath"
+  capacity:
+    storage: 30Gi
+  volumeMode: Filesystem
+  accessModes:
+    - ReadWriteOnce
+  hostPath:
+    path: "/data/es1"
+---
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: elasticsearch-master-elasticsearch-master-1
+  labels:
+    type: local
+spec:
+  storageClassName: "openebs-hostpath"
+  capacity:
+    storage: 30Gi
+  volumeMode: Filesystem
+  accessModes:
+    - ReadWriteOnce
+  hostPath:
+    path: "/data/es2"
+---
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: elasticsearch-master-elasticsearch-master-2
+  labels:
+    type: local
+spec:
+  storageClassName: "openebs-hostpath"
+  capacity:
+    storage: 30Gi
+  volumeMode: Filesystem
+  accessModes:
+    - ReadWriteOnce
+  hostPath:
+    path: "/data/es3"
