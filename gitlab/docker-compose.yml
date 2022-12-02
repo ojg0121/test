@@ -1,0 +1,28 @@
+version: '3.9'
+
+services:
+  gitlab:
+    image: "gitlab/gitlab-ee:14.10.5-ee.0"
+    container_name: gitlab
+    restart: always
+    hostname: "14.41.2.152"
+    environment:
+      GITLAB_OMNIBUS_CONFIG: |
+        external_url 'http://14.41.2.152'
+        gitlab_rails['gitlab_shell_ssh_port'] = 8022
+        # Add any other gitlab.rb configuration here, each on its own line
+      TZ: 'Asia/Seoul'
+    ports:
+      - "80:80"
+      - "443:443"
+      - "8022:22"
+    volumes:
+      - "./config:/etc/gitlab"
+      - "./logs:/var/log/gitlab"
+      - "./data:/var/opt/gitlab"
+  gitlab-runner:
+    image: gitlab/gitlab-runner:v15.2.2
+    restart: always
+    volumes:
+      - /data/gitlab-runner/config:/etc/gitlab-runner
+      - /var/run/docker.sock:/var/run/docker.sock
