@@ -25,7 +25,7 @@ if [[ "$VERSION" == *"Rocky"* ]]; then
 
 # Install Docker using the repository
 dnf config-manager --add-repo https://download.docker.com/linux/centos/docker-ce.repo
-dnf install -y docker-ce docker-ce-cli containerd.io dnf-plugins-core device-mapper-persistent-data lvm2 epel-release git curl wget
+dnf install -y docker-ce docker-ce-cli containerd.io dnf-plugins-core device-mapper-persistent-data lvm2 epel-release git curl wget bash-completion
 systemctl start docker
 systemctl enable docker
 systemctl enable containerd
