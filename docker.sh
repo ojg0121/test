@@ -25,7 +25,7 @@ if [[ "$VERSION" == *"Rocky"* ]]; then
 
 # Install Docker using the repository
 dnf config-manager --add-repo https://download.docker.com/linux/centos/docker-ce.repo
-dnf install -y docker-ce docker-ce-cli containerd.io dnf-plugins-core device-mapper-persistent-data lvm2 epel-release git curl wget bash-completion
+dnf install -y docker-ce docker-ce-cli containerd.io dnf-plugins-core device-mapper-persistent-data lvm2 epel-release git curl wget
 systemctl start docker
 systemctl enable docker
 systemctl enable containerd
@@ -80,7 +80,7 @@ repo_gpgcheck=1
 gpgkey=https://packages.cloud.google.com/yum/doc/yum-key.gpg https://packages.cloud.google.com/yum/doc/rpm-package-key.gpg
 EOF
 
-dnf -y install kubelet-1.22.3 kubeadm-1.22.3 kubectl-1.22.3 --disableexcludes=kubernetes
+dnf -y install kubelet-1.25.8 kubeadm-1.25.8 kubectl-1.25.8 --disableexcludes=kubernetes
 
 sudo systemctl enable kubelet
 cat <<EOF | sudo tee /etc/docker/daemon.json
