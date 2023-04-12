@@ -80,8 +80,12 @@ repo_gpgcheck=1
 gpgkey=https://packages.cloud.google.com/yum/doc/yum-key.gpg https://packages.cloud.google.com/yum/doc/rpm-package-key.gpg
 EOF
 
+<<<<<<< HEAD
 # 버전에 맞게 버전 명세 변경 후 실행
 dnf -y install kubelet-1.22.3 kubeadm-1.22.3 kubectl-1.22.3 --disableexcludes=kubernetes
+=======
+dnf -y install kubelet-1.25.8 kubeadm-1.25.8 kubectl-1.25.8 --disableexcludes=kubernetes
+>>>>>>> 6ae2be077c68e91cdd372f4b3a4e8efe8236f84c
 
 sudo systemctl enable kubelet
 cat <<EOF | sudo tee /etc/docker/daemon.json
